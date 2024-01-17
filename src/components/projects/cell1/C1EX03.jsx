@@ -2,7 +2,9 @@ import React from 'react'
 
 const C1EX03 = () => {
   return (
-    <div>C1EX03</div>
+    <div className='w-full h-full'>
+      
+    </div>
   )
 }
 

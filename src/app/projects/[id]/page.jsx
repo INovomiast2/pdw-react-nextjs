@@ -5,6 +5,7 @@ import { CodeBlock, dracula } from "react-code-blocks";
 import { IoMdDocument } from "react-icons/io";
 import axios from "axios";
 import dynamic from "next/dynamic";
+import { FaHtml5 } from "react-icons/fa";
 
 const Idpage = ({ params }) => {
   const [project, setProject] = useState(null);
@@ -41,10 +42,15 @@ const Idpage = ({ params }) => {
     handleProjectData();
   }, [params.id]);
 
-  if (!project  ) {
-    return <div>
-      <div className="loading-infinity"></div>
-    </div>;
+  if (!project) {
+    return (
+      <div className="flex items-center justify-center w-full h-screen">
+        <div className="flex flex-col items-center">
+          <span className="w-32 h-32 loading loading-infinity"></span>
+          <h2 className="mt-10 text-2xl font-bold">Loading Project</h2>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -69,14 +75,14 @@ const Idpage = ({ params }) => {
         </div>
         <div className="text-2xl font-bold divider">Code</div>
         <div className="flex justify-center">
-          <div className="border-2 border-white rounded-lg w-[50%]">
+          <span className="transform translate-x-20 translate-y-2.5 text-gray-500 inline  ">{project.prjLang.toUpperCase()} <FaHtml5 className="inline p-0 m-0" /></span>
+          <div className="border-2 border-white rounded-lg w-[50%] mt-10 mb-20">
             <CodeBlock
-              text={`${project.prjCode}`}
+              text={`${project.prjCode.split("\\n").join("\n")}`}
               language={project.prjLang}
               showLineNumbers={true}
               theme={dracula}
               codeBlock
-              customStyle={{ whiteSpace: "pre-wrap" }}
             />
           </div>
         </div>
