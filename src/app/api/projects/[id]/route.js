@@ -8,3 +8,7 @@ export const GET = async (req) => {
     const project = await Project.findById(id);
     return NextResponse.json(project);
 }
+
+export const UPDATE = async (req) => {
+    
+}
