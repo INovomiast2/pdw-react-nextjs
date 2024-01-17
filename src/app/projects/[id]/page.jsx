@@ -63,7 +63,9 @@ const Idpage = ({ params }) => {
           <div className="text-center">
             <h1 className="text-3xl font-bold">{project.prjName}</h1>
             <p className="mt-2 text-xl text-blue-400 underline hover:cursor-pointer">
-              Ver Subject <IoMdDocument className="inline" />
+              <a href={project.prjSubject} target="_blank">
+                Ver Subject <IoMdDocument className="inline" />
+              </a>
             </p>
           </div>
         </div>
